@@ -53,7 +53,7 @@ RootCommand BuildCommandLineInterface(string defaultFilepath, string defaultInpu
     rootCommand.SetHandler(
         HandleCommandExecution,
         (Option<string>)options["output"],
-        (Option<int>)options["size"],
+        (Option<long>)options["size"],
         (Option<string>)options["source"]
     );
     
@@ -70,7 +70,7 @@ Dictionary<string, Option> CreateCommandOptions(string defaultFilepath, string g
             getDefaultValue: () => defaultFilepath, 
             description: "The file to save generated content to"),
             
-        ["size"] = new Option<int>(
+        ["size"] = new Option<long>(
             name: "--size", 
             getDefaultValue: () => 1024 * 1024 * 1024, 
             description: "The generated content size in bytes"),
@@ -83,7 +83,7 @@ Dictionary<string, Option> CreateCommandOptions(string defaultFilepath, string g
 }
 
 // Handle the main command execution
-async Task HandleCommandExecution(string outputPath, int contentSize, string sourceFilePath)
+async Task HandleCommandExecution(string outputPath, long contentSize, string sourceFilePath)
 {
     if (!File.Exists(sourceFilePath))
     {
@@ -122,13 +122,8 @@ async Task HandleCommandExecution(string outputPath, int contentSize, string sou
 }
 
 // Generate file with random content
-async Task GenerateFile(string path, int contentSize, string sourceFilePath)
-{
-    if (File.Exists(path))
-    {
-        File.Delete(path);
-    }
-    
+async Task GenerateFile(string path, long contentSize, string sourceFilePath)
+{   
     var currentSize = 0;
     var source = await File.ReadAllLinesAsync(sourceFilePath);
     
@@ -139,7 +134,8 @@ async Task GenerateFile(string path, int contentSize, string sourceFilePath)
     await using var fs = File.Create(path);
     
     // Generate content until required size is reached
-    while (currentSize <= contentSize)
+    int percentage = 10;
+    while (currentSize < contentSize)
     {
         var textPart = textPartGenerator.GetNext();
         var numberPart = numberPartGenerator.GetNext().ToString();
@@ -149,5 +145,16 @@ async Task GenerateFile(string path, int contentSize, string sourceFilePath)
         
         await fs.WriteAsync(buffer, 0, buffer.Length);
         currentSize += buffer.Length;
+        
+        if ((double)currentSize / contentSize * 100.0 > percentage)
+        {
+            ConsoleLogger.Write(
+                () =>
+                {
+                    Console.WriteLine($"{percentage}%");
+                },
+                ConsoleColor.Blue);
+            percentage += 10;
+        }
     }
 }

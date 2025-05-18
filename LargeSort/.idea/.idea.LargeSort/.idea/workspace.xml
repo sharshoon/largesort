@@ -10,25 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04de75a3-91a1-4330-9550-dbe408e319b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sorter/Comparer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sorter/ConsoleLogger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sorter/Content.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sorter/FileReader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sorter/Merger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/ConsoleLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/ConsoleLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LargeSort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LargeSort/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/FileGenerationUtil.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/FileGenerationUtil.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileGenerationUtil/InitCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/InitCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileGenerationUtil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/Comparer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/Comparer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/ConsoleLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/ConsoleLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/FileReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/FileReader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sorter/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/Sorter.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/Sorter.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/Sorter.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/Sorter.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sorter/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/LargeSort.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/LargeSort.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net9.0/LargeSort.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net9.0/LargeSort.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,9 +81,9 @@
 }]]></component>
   <component name="RunManager" selected=".NET Project.FileGenerationUtil">
     <configuration name="FileGenerationUtil" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/FileGenerationUtil/bin/Debug/net9.0/FileGenerationUtil" />
+      <option name="PROGRAM_PARAMETERS" value="--output &quot;output.txt&quot; --size 5368709120 --source &quot;source.txt&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FileGenerationUtil/bin/Debug/net9.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -106,7 +98,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net9.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -157,6 +149,11 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Project.FileGenerationUtil" />
+      <item itemvalue=".NET Project.LargeSort" />
+      <item itemvalue=".NET Project.Sorter" />
+    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -165,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747585700301</updated>
-      <workItem from="1747585701334" duration="3586000" />
+      <workItem from="1747585701334" duration="7626000" />
     </task>
     <task id="LOCAL-00001" summary="initialize LargeSort project with .NET 9.0 and basic structure">
       <option name="closed" value="true" />
@@ -191,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747587153011</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add content sorting functionality with command line interface and content reader">
+      <option name="closed" value="true" />
+      <created>1747592643570</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747592643570</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +209,8 @@
     <MESSAGE value="initialize LargeSort project with .NET 9.0 and basic structure" />
     <MESSAGE value="add gitignore" />
     <MESSAGE value="implement file generation utility with command line interface and content generators" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement file generation utility with command line interface and content generators" />
+    <MESSAGE value="add content sorting functionality with command line interface and content reader" />
+    <option name="LAST_COMMIT_MESSAGE" value="add content sorting functionality with command line interface and content reader" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -221,6 +227,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/FileGenerationUtil/Program.cs</url>
+          <line>126</line>
+          <properties documentPath="$PROJECT_DIR$/FileGenerationUtil/Program.cs" containingFunctionPresentation="Local function 'GenerateFile'">
+            <startOffsets>
+              <option value="4380" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4400" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

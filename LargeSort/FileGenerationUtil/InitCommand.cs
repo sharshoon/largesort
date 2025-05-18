@@ -5,6 +5,9 @@ namespace FileGenerationUtil;
 
 public class InitCommand : Command
 {
+    const int minTextLength = 15;
+    const int maxTextLength = 50;
+    
     public InitCommand(string defaultInputForSourceGeneration, string sourceFilePath)
         : base("init", "Init the source file to be used during the generation")
     {
@@ -39,18 +42,13 @@ public class InitCommand : Command
 
     private static async Task InitSource(string inputPath, string outputPath)
     {
-        if (File.Exists(outputPath))
-        {
-            File.Delete(outputPath);
-        }
-
         var rand = new Random();
-        using var input = File.OpenRead(inputPath);
-        using var output = File.Create(outputPath);
+        await using var input = File.OpenRead(inputPath);
+        await using var output = File.Create(outputPath);
 
         while (true)
         {
-            var m = rand.Next(5, 25);
+            var m = rand.Next(minTextLength, maxTextLength);
             var buffer = new byte[m];
             var readCount = await input.ReadAsync(buffer, 0, m);
             if (readCount == 0)
@@ -60,7 +58,7 @@ public class InitCommand : Command
 
             string result = Encoding.UTF8.GetString(buffer, 0, readCount);
             var escaped = result.Replace("\n", " ").Trim() + "\n";
-            if (escaped.Length < 5)
+            if (escaped.Length < minTextLength)
                 continue;
             buffer = Encoding.UTF8.GetBytes(escaped);
 
