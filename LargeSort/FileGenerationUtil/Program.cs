@@ -87,7 +87,7 @@ async Task HandleCommandExecution(string outputPath, int contentSize, string sou
 {
     if (!File.Exists(sourceFilePath))
     {
-        ConsoleHelper.Write(() =>
+        ConsoleLogger.Write(() =>
         {
             Console.WriteLine("Source file doesn't exist, specify one with '--source' flag, or create default running 'init' command");
         }, ConsoleColor.Red);
@@ -98,7 +98,7 @@ async Task HandleCommandExecution(string outputPath, int contentSize, string sou
     {
         await GenerateFile(outputPath, contentSize, sourceFilePath);
         
-        ConsoleHelper.Write(() =>
+        ConsoleLogger.Write(() =>
         {
             Console.WriteLine("Content was generated and written to:");
             Console.WriteLine(outputPath);
@@ -106,14 +106,14 @@ async Task HandleCommandExecution(string outputPath, int contentSize, string sou
     }
     catch (Exception ex)
     {
-        ConsoleHelper.Write(() =>
+        ConsoleLogger.Write(() =>
         {
             Console.WriteLine("Something went wrong: {0}", ex.Message);
         }, ConsoleColor.Red);
     }
     finally
     {
-        ConsoleHelper.Write(() =>
+        ConsoleLogger.Write(() =>
         {
             Console.WriteLine("Press any key to exit...");
         }, ConsoleColor.Yellow);

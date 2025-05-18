@@ -20,7 +20,7 @@ public class InitCommand : Command
             try
             {
                 await InitSource(input, sourceFilePath);
-                ConsoleHelper.Write(() =>
+                ConsoleLogger.Write(() =>
                 {
                     Console.WriteLine("Source file:");
                     Console.WriteLine(sourceFilePath);
@@ -28,7 +28,7 @@ public class InitCommand : Command
             }
             catch (Exception ex)
             {
-                ConsoleHelper.Write(() =>
+                ConsoleLogger.Write(() =>
                 {
                     Console.WriteLine("Something went wrong: {0}", ex.Message);
                 }, ConsoleColor.Red);

@@ -1,4 +1,4 @@
-namespace FileGenerationUtil;
+namespace Sorter;
 
 public static class ConsoleLogger
 {
