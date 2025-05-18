@@ -124,7 +124,7 @@ async Task HandleCommandExecution(string outputPath, long contentSize, string so
 // Generate file with random content
 async Task GenerateFile(string path, long contentSize, string sourceFilePath)
 {   
-    var currentSize = 0;
+    long currentSize = 0;
     var source = await File.ReadAllLinesAsync(sourceFilePath);
     
     // Create generators

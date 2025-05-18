@@ -7,15 +7,9 @@
     <list default="true" id="95218fd1-c98c-45f0-bcb3-6e294781b9a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LargeSort/.idea/.idea.LargeSort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/.idea/.idea.LargeSort/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/FileGenerationUtil.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/FileGenerationUtil.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/InitCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/InitCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/Comparer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/Comparer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/ConsoleLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/ConsoleLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/FileReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/FileReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/obj/Debug/net9.0/LargeSort.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/obj/Debug/net9.0/LargeSort.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/obj/Debug/net9.0/LargeSort.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/obj/Debug/net9.0/LargeSort.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
