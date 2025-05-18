@@ -2,7 +2,9 @@ using System.CommandLine;
 using System.Reflection;
 using System.Text;
 using FileGenerationUtil;
+using FileGenerationUtil.Configuration;
 using FileGenerationUtil.Interfaces;
+using FileGenerationUtil.Operations;
 
 // Entry point for the application
 return await RunApplication(args);
@@ -10,40 +12,27 @@ return await RunApplication(args);
 // Main application execution function
 async Task<int> RunApplication(string[] args)
 {
-    // Get paths for files 
-    var (currentDirectory, defaultFilepath, exeDirectory, defaultInputForSourceGeneration, generatedSourceFilePath) = GetFilePaths();
+    // Initialize application configuration
+    var config = new GeneratorConfiguration();
     
     // Configure and build command line interface
-    var rootCommand = BuildCommandLineInterface(defaultFilepath, defaultInputForSourceGeneration, generatedSourceFilePath);
+    var rootCommand = BuildCommandLineInterface(config);
     
     // Execute the command
     return await rootCommand.InvokeAsync(args);
 }
 
-// Get all necessary file paths
-(string currentDirectory, string defaultFilepath, string exeDirectory, string defaultInputForSourceGeneration, string generatedSourceFilePath) GetFilePaths()
-{
-    var currentDirectory = Directory.GetCurrentDirectory();
-    var defaultFilepath = Path.Combine(currentDirectory, "default.txt");
-    var exePath = Assembly.GetExecutingAssembly().Location;
-    var exeDirectory = Path.GetDirectoryName(exePath);
-    var defaultInputForSourceGeneration = Path.Combine(exeDirectory, "loremIpsum.txt");
-    var generatedSourceFilePath = Path.Combine(exeDirectory, "source.txt");
-    
-    return (currentDirectory, defaultFilepath, exeDirectory, defaultInputForSourceGeneration, generatedSourceFilePath);
-}
-
 // Build the command line interface
-RootCommand BuildCommandLineInterface(string defaultFilepath, string defaultInputForSourceGeneration, string generatedSourceFilePath)
+RootCommand BuildCommandLineInterface(GeneratorConfiguration config)
 {
     var rootCommand = new RootCommand("Utility to generate file with random data in format 'Number.String'");
     
     // Add init command
-    var initSourceCommand = new InitCommand(defaultInputForSourceGeneration, generatedSourceFilePath);
+    var initSourceCommand = new InitCommand(config.DefaultInputForSourceGeneration, config.GeneratedSourceFilePath);
     rootCommand.AddCommand(initSourceCommand);
     
     // Configure options
-    var options = CreateCommandOptions(defaultFilepath, generatedSourceFilePath);
+    var options = CreateCommandOptions(config);
     foreach (var option in options)
     {
         rootCommand.AddOption(option.Value);
@@ -51,7 +40,8 @@ RootCommand BuildCommandLineInterface(string defaultFilepath, string defaultInpu
     
     // Set up the main command handler
     rootCommand.SetHandler(
-        HandleCommandExecution,
+        (string outputPath, long contentSize, string sourceFilePath) => 
+            HandleCommandExecution(outputPath, contentSize, sourceFilePath, config),
         (Option<string>)options["output"],
         (Option<long>)options["size"],
         (Option<string>)options["source"]
@@ -61,13 +51,13 @@ RootCommand BuildCommandLineInterface(string defaultFilepath, string defaultInpu
 }
 
 // Create command line options
-Dictionary<string, Option> CreateCommandOptions(string defaultFilepath, string generatedSourceFilePath)
+Dictionary<string, Option> CreateCommandOptions(GeneratorConfiguration config)
 {
     return new Dictionary<string, Option>
     {
         ["output"] = new Option<string>(
             name: "--output", 
-            getDefaultValue: () => defaultFilepath, 
+            getDefaultValue: () => config.DefaultFilepath, 
             description: "The file to save generated content to"),
             
         ["size"] = new Option<long>(
@@ -77,13 +67,13 @@ Dictionary<string, Option> CreateCommandOptions(string defaultFilepath, string g
             
         ["source"] = new Option<string>(
             name: "--source", 
-            getDefaultValue: () => generatedSourceFilePath, 
+            getDefaultValue: () => config.GeneratedSourceFilePath, 
             description: "The source file for string generation")
     };
 }
 
 // Handle the main command execution
-async Task HandleCommandExecution(string outputPath, long contentSize, string sourceFilePath)
+async Task HandleCommandExecution(string outputPath, long contentSize, string sourceFilePath, GeneratorConfiguration config)
 {
     if (!File.Exists(sourceFilePath))
     {
@@ -94,9 +84,15 @@ async Task HandleCommandExecution(string outputPath, long contentSize, string so
         return;
     }
     
+    var performanceMonitor = new PerformanceMonitor();
+    
     try
     {
-        await GenerateFile(outputPath, contentSize, sourceFilePath);
+        performanceMonitor.StartMonitoring("File Generation");
+        
+        // Use operation pattern
+        var operation = new FileGenerationOperation(outputPath, contentSize, sourceFilePath);
+        await operation.ExecuteAsync();
         
         ConsoleLogger.Write(() =>
         {
@@ -113,48 +109,16 @@ async Task HandleCommandExecution(string outputPath, long contentSize, string so
     }
     finally
     {
+        var elapsed = performanceMonitor.StopMonitoring("File Generation");
+        ConsoleLogger.Write(() =>
+        {
+            Console.WriteLine($"Total time: {elapsed.Hours:00}:{elapsed.Minutes:00}:{elapsed.Seconds:00}.{elapsed.Milliseconds:000}");
+        }, ConsoleColor.Cyan);
+        
         ConsoleLogger.Write(() =>
         {
             Console.WriteLine("Press any key to exit...");
         }, ConsoleColor.Yellow);
         Console.ReadKey();
-    }
-}
-
-// Generate file with random content
-async Task GenerateFile(string path, long contentSize, string sourceFilePath)
-{   
-    long currentSize = 0;
-    var source = await File.ReadAllLinesAsync(sourceFilePath);
-    
-    // Create generators
-    IContentGenerator<string> textPartGenerator = new StringGenerator(source);
-    IContentGenerator<int> numberPartGenerator = new NumberGenerator();
-    
-    await using var fs = File.Create(path);
-    
-    // Generate content until required size is reached
-    int percentage = 10;
-    while (currentSize < contentSize)
-    {
-        var textPart = textPartGenerator.GetNext();
-        var numberPart = numberPartGenerator.GetNext().ToString();
-        
-        var line = $"{numberPart}.{textPart}\n";
-        var buffer = Encoding.UTF8.GetBytes(line);
-        
-        await fs.WriteAsync(buffer, 0, buffer.Length);
-        currentSize += buffer.Length;
-        
-        if ((double)currentSize / contentSize * 100.0 > percentage)
-        {
-            ConsoleLogger.Write(
-                () =>
-                {
-                    Console.WriteLine($"{percentage}%");
-                },
-                ConsoleColor.Blue);
-            percentage += 10;
-        }
     }
 }

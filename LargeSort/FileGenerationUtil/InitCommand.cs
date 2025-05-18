@@ -1,5 +1,6 @@
 using System.CommandLine;
 using System.Text;
+using FileGenerationUtil.Operations;
 
 namespace FileGenerationUtil;
 
@@ -20,9 +21,15 @@ public class InitCommand : Command
         this.AddOption(inputTextPathOption);
         this.SetHandler(async (string input) =>
         {
+            var performanceMonitor = new PerformanceMonitor();
+            
             try
             {
-                await InitSource(input, sourceFilePath);
+                performanceMonitor.StartMonitoring("Source Initialization");
+                
+                var operation = new SourceInitOperation(input, sourceFilePath, minTextLength, maxTextLength);
+                await operation.ExecuteAsync();
+                
                 ConsoleLogger.Write(() =>
                 {
                     Console.WriteLine("Source file:");
@@ -36,33 +43,14 @@ public class InitCommand : Command
                     Console.WriteLine("Something went wrong: {0}", ex.Message);
                 }, ConsoleColor.Red);
             }
-
-        }, inputTextPathOption);
-    }
-
-    private static async Task InitSource(string inputPath, string outputPath)
-    {
-        var rand = new Random();
-        await using var input = File.OpenRead(inputPath);
-        await using var output = File.Create(outputPath);
-
-        while (true)
-        {
-            var m = rand.Next(minTextLength, maxTextLength);
-            var buffer = new byte[m];
-            var readCount = await input.ReadAsync(buffer, 0, m);
-            if (readCount == 0)
+            finally
             {
-                break;
+                var elapsed = performanceMonitor.StopMonitoring("Source Initialization");
+                ConsoleLogger.Write(() =>
+                {
+                    Console.WriteLine($"Initialization time: {elapsed.Seconds}.{elapsed.Milliseconds:000}s");
+                }, ConsoleColor.Cyan);
             }
-
-            string result = Encoding.UTF8.GetString(buffer, 0, readCount);
-            var escaped = result.Replace("\n", " ").Trim() + "\n";
-            if (escaped.Length < minTextLength)
-                continue;
-            buffer = Encoding.UTF8.GetBytes(escaped);
-
-            await output.WriteAsync(buffer);
-        }
+        }, inputTextPathOption);
     }
 }
