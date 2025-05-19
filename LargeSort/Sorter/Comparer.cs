@@ -2,7 +2,7 @@ namespace Sorter;
 
 public class ContentComparator : IComparer<Content>
 {
-    public static ContentComparator Default = new ContentComparator();
+    public static readonly ContentComparator Default = new ContentComparator();
     public int Compare(Content? x, Content? y)
     {
         switch (x)

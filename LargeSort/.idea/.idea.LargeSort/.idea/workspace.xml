@@ -10,11 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04de75a3-91a1-4330-9550-dbe408e319b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/ConsoleLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/ConsoleLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/InitCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/InitCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/NumberGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/NumberGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/StringGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/StringGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sorter/PerformanceMonitor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LargeSort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LargeSort/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileGenerationUtil/PerformanceMonitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/FileGenerationUtil/PerformanceMonitor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/Comparer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/Comparer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/ConsoleLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/ConsoleLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/Merger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/Merger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sorter/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
@@ -57,7 +60,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Project.FileGenerationUtil.executor": "Debug",
-    ".NET Project.Sorter.executor": "Debug",
+    ".NET Project.Sorter.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -77,10 +80,10 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.FileGenerationUtil">
+  <component name="RunManager" selected=".NET Project.Sorter">
     <configuration name="FileGenerationUtil" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/FileGenerationUtil/bin/Debug/net9.0/FileGenerationUtil" />
-      <option name="PROGRAM_PARAMETERS" value="--output &quot;output.txt&quot; --size 5368709120 --source &quot;source.txt&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="--output &quot;output.txt&quot; --size 10737418240 --source &quot;source.txt&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FileGenerationUtil/bin/Debug/net9.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -125,9 +128,9 @@
       </method>
     </configuration>
     <configuration name="Sorter" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Sorter/bin/Debug/net9.0/Sorter" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Sorter/bin/Release/net9.0/Sorter" />
       <option name="PROGRAM_PARAMETERS" value="--input &quot;output.txt&quot; --output &quot;result.txt&quot; " />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Sorter/bin/Debug/net9.0" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Sorter/bin/Release/net9.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="ENV_FILE_PATHS" value="" />
@@ -160,7 +163,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747585700301</updated>
-      <workItem from="1747585701334" duration="11336000" />
+      <workItem from="1747585701334" duration="15920000" />
     </task>
     <task id="LOCAL-00001" summary="initialize LargeSort project with .NET 9.0 and basic structure">
       <option name="closed" value="true" />
@@ -218,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747601735607</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor logging functionality in ConsoleLogger; add success, error, warning, and info logging methods">
+      <option name="closed" value="true" />
+      <created>1747602518146</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747602518146</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +246,8 @@
     <MESSAGE value="refactor content sorting and file generation logic; improve null handling and add elapsed time logging" />
     <MESSAGE value="add test file" />
     <MESSAGE value="refactor Program.cs and update assembly information; improve variable declaration and project configuration" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor Program.cs and update assembly information; improve variable declaration and project configuration" />
+    <MESSAGE value="refactor logging functionality in ConsoleLogger; add success, error, warning, and info logging methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor logging functionality in ConsoleLogger; add success, error, warning, and info logging methods" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

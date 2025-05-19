@@ -11,8 +11,8 @@ public static class ConsoleLogger
     
     public static void PrintElapsedTime(TimeSpan elapsed, string messagePrefix)
     {
-        var elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            elapsed.Hours, elapsed.Minutes, elapsed.Seconds, elapsed.Milliseconds / 10);
+        var elapsedTime =
+            $"{elapsed.Hours:00}:{elapsed.Minutes:00}:{elapsed.Seconds:00}.{elapsed.Milliseconds / 10:00}";
         Write(() =>
         {
             Console.WriteLine(messagePrefix + ": " + elapsedTime);

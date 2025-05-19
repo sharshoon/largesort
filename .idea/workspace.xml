@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95218fd1-c98c-45f0-bcb3-6e294781b9a2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LargeSort/Sorter/PerformanceMonitor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LargeSort/.idea/.idea.LargeSort/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/.idea/.idea.LargeSort/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/PerformanceMonitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/FileGenerationUtil/PerformanceMonitor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/Comparer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/Comparer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/ConsoleLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/ConsoleLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/Merger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/Merger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/LargeSort/Sorter/obj/Debug/net9.0/Sorter.AssemblyInfoInputs.cache" afterDir="false" />
     </list>
