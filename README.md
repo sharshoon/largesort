@@ -4,10 +4,6 @@
 
 **largesort** is a project designed to handle sorting and generation of extremely large text files (up to 100 GB or more). Each line in the file follows the format:
 
-```
-Number. String
-```
-
 ### Example:
 ```
 415. Apple
